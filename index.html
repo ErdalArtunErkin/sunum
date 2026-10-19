@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erdal Artun Erkin · Web Tasarımcısı</title>
+<meta name="description" content="Erdal Artun Erkin – web sitesi, mobil uygulama, logo ve menü tasarımı. Portfolyo sunumu.">
+<meta property="og:title" content="Erdal Artun Erkin · Web Tasarımcısı">
+<meta property="og:description" content="Web sitesi, mobil uygulama, logo ve menü tasarımı. Portfolyo sunumu.">
+<meta property="og:image" content="https://artun8.github.io/sunum/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..600&display=swap">
+<style>
+  :root { --ink:#111111; --soft:#5E5E5E; --line:#111111; --bg:#FDFDFC; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font-family:'Quicksand', Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
+  header { padding:40px 0 28px; display:flex; align-items:center; gap:16px; border-bottom:1px solid var(--line); }
+  header img { width:56px; height:auto; }
+  header h1 { font-size:22px; font-weight:500; line-height:1.2; }
+  header p { font-size:16px; font-weight:300; color:var(--soft); }
+  .slides { display:flex; flex-direction:column; gap:20px; padding:28px 0; }
+  .slides img { width:100%; height:auto; display:block; border:1px solid var(--line); }
+  .contact { border-top:1px solid var(--line); padding:28px 0 12px; display:grid; grid-template-columns:repeat(3, 1fr); gap:0; }
+  .contact a { display:flex; flex-direction:column; gap:4px; padding:4px 20px; color:var(--ink); text-decoration:none; border-left:1px solid var(--line); min-width:0; }
+  .contact a:first-child { border-left:none; padding-left:0; }
+  .contact span { font-size:16px; font-weight:500; }
+  .contact small { font-size:15px; color:var(--soft); overflow-wrap:anywhere; }
+  .contact a:hover small, .contact a:focus-visible small { color:var(--ink); text-decoration:underline; }
+  footer { padding:28px 0 40px; font-size:14px; color:var(--soft); }
+  @media (max-width:640px) {
+    header { padding:28px 0 20px; }
+    .slides { gap:12px; padding:20px 0; }
+    .contact { grid-template-columns:1fr; }
+    .contact a { border-left:none; border-top:1px solid var(--line); padding:14px 0; }
+    .contact a:first-child { border-top:none; padding-top:0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.png" alt="Erdal Artun Erkin logosu">
+    <div>
+      <h1>erdal artun erkin</h1>
+      <p>web tasarımcısı · portfolyo 2026</p>
+    </div>
+  </header>
+
+  <main class="slides">
+    <img src="img/s-1.jpg" alt="Kapak: Erdal Artun Erkin, web tasarımcısı" width="1600" height="900">
+    <img src="img/s-2.jpg" alt="Hizmetler: web sitesi, mobil uygulama, logo ve kurumsal kimlik, menü tasarımı" width="1600" height="900" loading="lazy">
+    <img src="img/s-3.jpg" alt="Öne çıkan proje: CAN web sitesi" width="1600" height="900" loading="lazy">
+    <img src="img/s-4.jpg" alt="CAN giriş deneyimi: kaydırmalı ana sayfa sahneleri ve menü" width="1600" height="900" loading="lazy">
+    <img src="img/s-5.jpg" alt="CAN ürün kataloğu ve beş adımlık tedarik süreci" width="1600" height="900" loading="lazy">
+    <img src="img/s-6.jpg" alt="CAN proje galerisi ve teklif formu" width="1600" height="900" loading="lazy">
+    <img src="img/s-7.jpg" alt="CAN 3D doğal taş koleksiyonu" width="1600" height="900" loading="lazy">
+    <img src="img/s-8.jpg" alt="Çalışma süreci ve iletişim bilgileri" width="1600" height="900" loading="lazy">
+  </main>
+
+  <section class="contact" aria-label="İletişim">
+    <a href="tel:+905548331088"><span>telefon:</span><small>+90 554 833 10 88</small></a>
+    <a href="mailto:erdalartunerkin@gmail.com"><span>e-posta:</span><small>erdalartunerkin@gmail.com</small></a>
+    <a href="https://www.linkedin.com/in/erdal-artun-erkin" target="_blank" rel="noopener"><span>linkedin:</span><small>linkedin.com/in/erdal-artun-erkin</small></a>
+  </section>
+
+  <footer>© 2026 Erdal Artun Erkin</footer>
+</div>
+</body>
+</html>
