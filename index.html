@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Erdal Artun Erkin · Web Tasarımcısı</title>
-<meta name="description" content="Erdal Artun Erkin – web sitesi, mobil uygulama, logo ve menü tasarımı. Portfolyo sunumu.">
-<meta property="og:title" content="Erdal Artun Erkin · Web Tasarımcısı">
-<meta property="og:description" content="Web sitesi, mobil uygulama, logo ve menü tasarımı. Portfolyo sunumu.">
+<meta name="description" content="Erdal Artun Erkin – web sitesi, mobil uygulama, logo ve menü tasarımı. / Website, mobile app, logo and menu design.">
+<meta property="og:title" content="Erdal Artun Erkin · Web Tasarımcısı / Web Designer">
+<meta property="og:description" content="Web sitesi, mobil uygulama, logo ve menü tasarımı. / Website, mobile app, logo and menu design.">
 <meta property="og:image" content="https://erdalartunerkin.github.io/sunum/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -14,60 +14,350 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..600&display=swap">
 <style>
-  :root { --ink:#111111; --soft:#5E5E5E; --line:#111111; --bg:#FDFDFC; }
+  :root { --ink:#111111; --soft:#5E5E5E; --body:#3A3A3A; --line:#111111; --bg:#FDFDFC; --dark:#111214; --on-dark:#FDFDFC; --dark-soft:#A3A3A3; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--ink); font-family:'Quicksand', Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--ink); font-family:'Quicksand', Arial, sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  img { display:block; max-width:100%; height:auto; }
+  a { color:inherit; }
   .wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
-  header { padding:40px 0 28px; display:flex; align-items:center; gap:16px; border-bottom:1px solid var(--line); }
-  header img { width:56px; height:auto; }
-  header h1 { font-size:22px; font-weight:500; line-height:1.2; }
-  header p { font-size:16px; font-weight:300; color:var(--soft); }
-  .slides { display:flex; flex-direction:column; gap:20px; padding:28px 0; }
-  .slides img { width:100%; height:auto; display:block; border:1px solid var(--line); }
-  .contact { border-top:1px solid var(--line); padding:28px 0 12px; display:grid; grid-template-columns:repeat(3, 1fr); gap:0; }
-  .contact a { display:flex; flex-direction:column; gap:4px; padding:4px 20px; color:var(--ink); text-decoration:none; border-left:1px solid var(--line); min-width:0; }
-  .contact a:first-child { border-left:none; padding-left:0; }
-  .contact span { font-size:16px; font-weight:500; }
-  .contact small { font-size:15px; color:var(--soft); overflow-wrap:anywhere; }
-  .contact a:hover small, .contact a:focus-visible small { color:var(--ink); text-decoration:underline; }
-  footer { padding:28px 0 40px; font-size:14px; color:var(--soft); }
-  @media (max-width:640px) {
-    header { padding:28px 0 20px; }
-    .slides { gap:12px; padding:20px 0; }
-    .contact { grid-template-columns:1fr; }
-    .contact a { border-left:none; border-top:1px solid var(--line); padding:14px 0; }
-    .contact a:first-child { border-top:none; padding-top:0; }
+
+  /* top bar + hero */
+  .top { background:var(--dark); color:var(--on-dark); }
+  .bar { display:flex; align-items:center; justify-content:space-between; padding:20px 0; }
+  .bar img { width:44px; }
+  .lang { display:flex; border:1px solid currentColor; }
+  .lang button { font:inherit; font-size:14px; font-weight:500; letter-spacing:1px; background:none; color:inherit; border:0; padding:6px 12px; cursor:pointer; }
+  .lang button + button { border-left:1px solid currentColor; }
+  .lang button[aria-pressed="true"] { background:var(--on-dark); color:var(--dark); }
+  .hero { display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px; padding:56px 0 72px; }
+  .hero img { width:min(260px, 60vw); }
+  .hero h1 { font-size:clamp(36px, 7vw, 64px); font-weight:400; line-height:1.1; }
+  .hero p { font-size:clamp(20px, 3.4vw, 28px); font-weight:300; color:var(--dark-soft); }
+  .hero small { font-size:14px; letter-spacing:2px; color:#8A8A8A; margin-top:12px; }
+
+  /* sections */
+  section.block { padding:56px 0 8px; }
+  .head { display:grid; grid-template-columns:1fr; gap:12px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+  .head h2 { font-size:clamp(30px, 5vw, 44px); font-weight:500; line-height:1.1; }
+  .head .sub { font-size:18px; font-weight:300; color:var(--soft); }
+  .head .desc { font-size:16px; color:var(--body); max-width:520px; }
+  @media (min-width:800px) { .head { grid-template-columns:1fr 1fr; align-items:end; } .head .desc { justify-self:end; } }
+
+  .cols { display:grid; grid-template-columns:1fr; padding:24px 0; }
+  .cols > div { padding:16px 0; border-top:1px solid var(--line); }
+  .cols > div:first-child { border-top:none; }
+  .cols .n { font-size:14px; color:var(--soft); }
+  .cols h3 { font-size:20px; font-weight:500; margin:6px 0; }
+  .cols p { font-size:15px; color:var(--body); }
+  @media (min-width:800px) {
+    .cols { grid-template-columns:repeat(4, 1fr); }
+    .cols > div { border-top:none; border-left:1px solid var(--line); padding:0 20px; }
+    .cols > div:first-child { border-left:none; padding-left:0; }
   }
+  .note { border-top:1px solid var(--line); padding:20px 0 0; }
+  .note b { display:block; font-weight:500; font-size:16px; }
+  .note p { font-size:18px; font-weight:300; color:var(--body); }
+
+  figure { margin:0; }
+  figure img { width:100%; border:1px solid var(--line); }
+  figcaption { font-size:14px; color:var(--soft); padding-top:8px; }
+  .shots { display:grid; grid-template-columns:1fr; gap:20px; padding-top:24px; }
+  .shots .side { display:grid; gap:20px; align-content:start; }
+  @media (min-width:800px) { .shots { grid-template-columns:2fr 1fr; } }
+  .wide { padding-top:24px; display:grid; gap:20px; }
+  .dark-band { background:#0B2023; border:1px solid var(--line); padding:12px; }
+  .dark-band img { border:0; margin:0 auto; }
+
+  .featured { display:grid; grid-template-columns:1fr; gap:24px; padding-top:24px; }
+  @media (min-width:800px) { .featured { grid-template-columns:3fr 2fr; } }
+  .featured .intro { font-size:17px; color:var(--body); }
+  .featured ul { list-style:none; border-bottom:1px solid var(--line); margin:16px 0; }
+  .featured li { border-top:1px solid var(--line); padding:12px 0; font-size:17px; }
+  .featured .tech b { display:block; font-weight:500; font-size:15px; }
+  .featured .tech span { font-size:15px; color:var(--soft); }
+  .form-note { border-top:1px solid var(--line); padding-top:16px; }
+  .form-note h3 { font-size:20px; font-weight:500; }
+  .form-note p { font-size:15px; color:var(--body); }
+
+  /* contact */
+  .contact h2 { font-size:clamp(26px, 4vw, 36px); font-weight:500; padding-bottom:20px; border-bottom:1px solid var(--line); }
+  .contact .row { display:grid; grid-template-columns:1fr; padding:20px 0; }
+  .contact a { display:flex; flex-direction:column; gap:2px; padding:12px 0; text-decoration:none; border-top:1px solid var(--line); min-width:0; }
+  .contact a:first-child { border-top:none; }
+  .contact a span { font-size:16px; font-weight:500; }
+  .contact a small { font-size:15px; color:var(--soft); overflow-wrap:anywhere; }
+  .contact a:hover small, .contact a:focus-visible small { color:var(--ink); text-decoration:underline; }
+  @media (min-width:800px) {
+    .contact .row { grid-template-columns:repeat(3, 1fr); }
+    .contact a { border-top:none; border-left:1px solid var(--line); padding:4px 20px; }
+    .contact a:first-child { border-left:none; padding-left:0; }
+  }
+  footer { display:flex; align-items:center; gap:12px; padding:32px 0 48px; font-size:14px; color:var(--soft); border-top:1px solid var(--line); margin-top:24px; }
+  footer img { width:36px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <img src="logo.png" alt="Erdal Artun Erkin logosu">
-    <div>
-      <h1>erdal artun erkin</h1>
-      <p>web tasarımcısı · portfolyo 2026</p>
+
+<div class="top">
+  <div class="wrap">
+    <div class="bar">
+      <img src="img/logo-white.png" alt="" width="400" height="297">
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" data-set-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
-  </header>
+    <div class="hero">
+      <img src="img/logo-white.png" alt="Erdal Artun Erkin logosu" data-i18n-alt="logoAlt" width="400" height="297">
+      <h1>erdal artun erkin</h1>
+      <p data-i18n="role">web tasarımcısı</p>
+      <small data-i18n="year">portfolyo · 2026</small>
+    </div>
+  </div>
+</div>
 
-  <main class="slides">
-    <img src="img/s-1.jpg" alt="Kapak: Erdal Artun Erkin, web tasarımcısı" width="1600" height="900">
-    <img src="img/s-2.jpg" alt="Hizmetler: web sitesi, mobil uygulama, logo ve kurumsal kimlik, menü tasarımı" width="1600" height="900" loading="lazy">
-    <img src="img/s-3.jpg" alt="Öne çıkan proje: CAN web sitesi" width="1600" height="900" loading="lazy">
-    <img src="img/s-4.jpg" alt="CAN giriş deneyimi: kaydırmalı ana sayfa sahneleri ve menü" width="1600" height="900" loading="lazy">
-    <img src="img/s-5.jpg" alt="CAN ürün kataloğu ve beş adımlık tedarik süreci" width="1600" height="900" loading="lazy">
-    <img src="img/s-6.jpg" alt="CAN proje galerisi ve teklif formu" width="1600" height="900" loading="lazy">
-    <img src="img/s-7.jpg" alt="CAN 3D doğal taş koleksiyonu" width="1600" height="900" loading="lazy">
-    <img src="img/s-8.jpg" alt="Çalışma süreci ve iletişim bilgileri" width="1600" height="900" loading="lazy">
-  </main>
+<main class="wrap">
 
-  <section class="contact" aria-label="İletişim">
-    <a href="tel:+905548331088"><span>telefon:</span><small>+90 554 833 10 88</small></a>
-    <a href="mailto:erdalartunerkin@gmail.com"><span>e-posta:</span><small>erdalartunerkin@gmail.com</small></a>
-    <a href="https://www.linkedin.com/in/erdal-artun-erkin" target="_blank" rel="noopener"><span>linkedin:</span><small>linkedin.com/in/erdal-artun-erkin</small></a>
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="svcTitle">neler yapıyorum?</h2><p class="sub" data-i18n="svcSub">hizmetler</p></div>
+      <p class="desc" data-i18n="svcDesc">Küçük işletmeler için web sitesi, uygulama ve kurumsal kimlik tasarımı.</p>
+    </div>
+    <div class="cols">
+      <div><p class="n">01</p><h3 data-i18n="s1t">web sitesi tasarımı</h3><p data-i18n="s1d">Kurumsal site, tanıtım sayfası ve kişisel portfolyo; her ekranda düzgün görünen tasarımlar.</p></div>
+      <div><p class="n">02</p><h3 data-i18n="s2t">mobil uygulama tasarımı</h3><p data-i18n="s2d">Kullanımı kolay, sade ve modern uygulama ekranları.</p></div>
+      <div><p class="n">03</p><h3 data-i18n="s3t">logo ve kurumsal kimlik</h3><p data-i18n="s3d">İşletmenizi yansıtan logo, renk ve yazı tipi seçimi.</p></div>
+      <div><p class="n">04</p><h3 data-i18n="s4t">menü tasarımı</h3><p data-i18n="s4d">Kafe ve restoranlar için basılı ve dijital (QR) menüler.</p></div>
+    </div>
+    <div class="note">
+      <b data-i18n="advT">daha kısa teslim süresi:</b>
+      <p data-i18n="advD">Yapay zekâ araçlarıyla çalıştığım için tasarımları hızlı üretiyor, size daha çok revizyon fırsatı sunuyorum.</p>
+    </div>
   </section>
 
-  <footer>© 2026 Erdal Artun Erkin</footer>
-</div>
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="canTitle">can web sitesi</h2><p class="sub" data-i18n="canSub">öne çıkan proje</p></div>
+    </div>
+    <div class="featured">
+      <figure>
+        <img src="img/hero.jpg" alt="CAN web sitesinin ana sayfası: “Spaces with life.” başlığı ve salon fotoğrafı" data-i18n-alt="heroAlt" width="1600" height="900">
+        <figcaption data-i18n="heroCap">ana sayfa</figcaption>
+      </figure>
+      <div>
+        <p class="intro" data-i18n="canIntro">İzmir’deki CAN için tasarlayıp geliştirdiğim site. CAN, iç mekân projelerine mobilya, doğal taş ve obje tedarik ediyor.</p>
+        <ul>
+          <li data-i18n="f1">kaydırmayla açılan sinematik giriş</li>
+          <li data-i18n="f2">kategorili ürün kataloğu</li>
+          <li data-i18n="f3">26 taşlık 3D doğal taş koleksiyonu</li>
+          <li data-i18n="f4">proje galerileri ve teklif formu</li>
+        </ul>
+        <p class="tech"><b data-i18n="techT">teknoloji:</b><span data-i18n="techD">Next.js · GSAP animasyon · 3D · mobil uyumlu</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="p1Title">sahne sahne ana sayfa</h2><p class="sub" data-i18n="p1Sub">can · giriş deneyimi</p></div>
+      <p class="desc" data-i18n="p1Desc">Kaydırdıkça fotoğraf dev CAN harflerinin içinden görünür, sonra kapılar açılıp “means life” sahnesi gelir. Menüde her başlığın görseli değişir.</p>
+    </div>
+    <div class="shots">
+      <figure><img src="img/meanslife.jpg" alt="Açılan kapıların ardında kemerli koridor ve “means life.” yazısı" data-i18n-alt="p1aAlt" width="1600" height="900" loading="lazy"><figcaption data-i18n="p1aCap">kapılar açılır: “means life”</figcaption></figure>
+      <div class="side">
+        <figure><img src="img/letters.jpg" alt="Koyu zemin üzerinde içinden fotoğraf görünen dev CAN harfleri" data-i18n-alt="p1bAlt" width="1600" height="900" loading="lazy"><figcaption data-i18n="p1bCap">harflerin içinden</figcaption></figure>
+        <figure><img src="img/menu.jpg" alt="Tam ekran menü ve yanında değişen görsel" data-i18n-alt="p1cAlt" width="1600" height="887" loading="lazy"><figcaption data-i18n="p1cCap">tam ekran menü</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="p2Title">katalog ve süreç</h2><p class="sub" data-i18n="p2Sub">can · ürünler ve tedarik</p></div>
+      <p class="desc" data-i18n="p2Desc">Ürünler kategoriye göre filtrelenir, her parçanın kodu ve teklif butonu var. Tedarik süreci, kaydırdıkça çizilen bir çizgiyle beş adımda anlatılır.</p>
+    </div>
+    <div class="wide">
+      <figure><img src="img/products.jpg" alt="Ürün kartları: Halo Wardrobe, Terra Frame, Stone Crest, Dune Capsule, Horizon Round, Modulo Grid" data-i18n-alt="p2aAlt" width="1600" height="312" loading="lazy"><figcaption data-i18n="p2aCap">ürün kataloğu</figcaption></figure>
+      <figure><div class="dark-band"><img src="img/steps.jpg" alt="Tedarik süreci: Brief, Options, Quote, Making, Delivery adımları" data-i18n-alt="p2bAlt" width="1460" height="340" loading="lazy"></div><figcaption data-i18n="p2bCap">5 adımlık tedarik süreci</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="p3Title">galeri ve teklif</h2><p class="sub" data-i18n="p3Sub">can · projeler ve iletişim</p></div>
+      <p class="desc" data-i18n="p3Desc">Projeler büyük fotoğraf ve küçük önizlemelerle gezilir. İletişim sayfası ziyaretçiyi tek bir formla doğrudan teklif istemeye yönlendirir.</p>
+    </div>
+    <div class="shots">
+      <figure><img src="img/projects.jpg" alt="Seçilmiş projeler bölümü: Aurelia Manor mutfak fotoğrafı ve diğer projelerin önizlemeleri" data-i18n-alt="p3aAlt" width="1600" height="900" loading="lazy"><figcaption data-i18n="p3aCap">proje galerisi</figcaption></figure>
+      <div class="side">
+        <figure><img src="img/contact.jpg" alt="İletişim sayfası: “Start a project.” başlığı ve teklif formu" data-i18n-alt="p3bAlt" width="1600" height="900" loading="lazy"><figcaption data-i18n="p3bCap">iletişim sayfası</figcaption></figure>
+        <div class="form-note"><h3 data-i18n="formT">teklif formu</h3><p data-i18n="formD">Proje tipi, konum, zamanlama ve bütçe tek formda. Yanında WhatsApp ve harita bağlantısı.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="p4Title">3D taş koleksiyonu</h2><p class="sub" data-i18n="p4Sub">can · doğal taş</p></div>
+      <p class="desc" data-i18n="p4Desc">18 mermer ve 8 traverten. Her taş tarayıcıda 3D olarak çevrilip ışıkta incelenir, renge göre filtrelenir ve tek tıkla teklif istenir.</p>
+    </div>
+    <div class="shots">
+      <figure><img src="img/modal.jpg" alt="Cielo Blu mermerinin 3D önizlemesi ve uygulama örnekleri" data-i18n-alt="p4aAlt" width="1600" height="900" loading="lazy"><figcaption data-i18n="p4aCap">çevrilebilir 3D taş</figcaption></figure>
+      <div class="side">
+        <figure><img src="img/carousel.jpg" alt="Taş koleksiyonu karuseli: Absolute Black seçili" data-i18n-alt="p4bAlt" width="952" height="535" loading="lazy"><figcaption data-i18n="p4bCap">taş karuseli</figcaption></figure>
+        <figure><img src="img/homestone.jpg" alt="Ana sayfadaki taş bölümü ve Calacatta Viola levhası" data-i18n-alt="p4cAlt" width="1600" height="816" loading="lazy"><figcaption data-i18n="p4cCap">ana sayfada taş seçici</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="head">
+      <div><h2 data-i18n="prTitle">nasıl çalışıyoruz?</h2><p class="sub" data-i18n="prSub">çalışma süreci</p></div>
+      <p class="desc" data-i18n="prDesc">Fikirden yayına dört adım. Her adımda sizi bilgilendiriyor, kararları birlikte veriyoruz.</p>
+    </div>
+    <div class="cols">
+      <div><p class="n">01</p><h3 data-i18n="st1t">görüşme</h3><p data-i18n="st1d">İhtiyaçlarınızı ve hedeflerinizi dinliyorum.</p></div>
+      <div><p class="n">02</p><h3 data-i18n="st2t">tasarım</h3><p data-i18n="st2d">İlk taslağı kısa sürede hazırlıyorum.</p></div>
+      <div><p class="n">03</p><h3 data-i18n="st3t">revizyon</h3><p data-i18n="st3d">Geri bildirimlerinize göre düzenliyorum.</p></div>
+      <div><p class="n">04</p><h3 data-i18n="st4t">yayına alma</h3><p data-i18n="st4d">Siteniz yayında; sonrasında da destek veriyorum.</p></div>
+    </div>
+  </section>
+
+  <section class="block contact" aria-labelledby="contact-title">
+    <h2 id="contact-title" data-i18n="ctTitle">projenizi konuşalım</h2>
+    <div class="row">
+      <a href="tel:+905548331088"><span data-i18n="ctPhone">telefon:</span><small>+90 554 833 10 88</small></a>
+      <a href="mailto:erdalartunerkin@gmail.com"><span data-i18n="ctMail">e-posta:</span><small>erdalartunerkin@gmail.com</small></a>
+      <a href="https://www.linkedin.com/in/erdal-artun-erkin" target="_blank" rel="noopener"><span>linkedin:</span><small>linkedin.com/in/erdal-artun-erkin</small></a>
+    </div>
+  </section>
+
+  <footer>
+    <img src="img/logo-black.png" alt="" width="400" height="297">
+    <span>© 2026 Erdal Artun Erkin · <span data-i18n="role">web tasarımcısı</span></span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var en = {
+    role: "web designer",
+    year: "portfolio · 2026",
+    logoAlt: "Erdal Artun Erkin logo",
+    svcTitle: "what I do",
+    svcSub: "services",
+    svcDesc: "Websites, apps and brand identity for small businesses.",
+    s1t: "website design",
+    s1d: "Company sites, landing pages and personal portfolios that look right on every screen.",
+    s2t: "mobile app design",
+    s2d: "Simple, modern app screens that are easy to use.",
+    s3t: "logo &amp; brand identity",
+    s3d: "A logo, colours and typefaces that reflect your business.",
+    s4t: "menu design",
+    s4d: "Printed and digital (QR) menus for cafés and restaurants.",
+    advT: "faster delivery:",
+    advD: "I work with AI tools, so designs come together quickly and you get more rounds of revisions.",
+    canTitle: "can website",
+    canSub: "featured project",
+    heroAlt: "CAN website home page: “Spaces with life.” headline over a living-room photograph",
+    heroCap: "home page",
+    canIntro: "A website I designed and built for CAN in İzmir. CAN supplies furniture, natural stone and objects for interior projects.",
+    f1: "cinematic scroll-driven intro",
+    f2: "product catalogue with categories",
+    f3: "3D collection of 26 natural stones",
+    f4: "project galleries and an enquiry form",
+    techT: "technology:",
+    techD: "Next.js · GSAP animation · 3D · mobile-friendly",
+    p1Title: "a homepage in scenes",
+    p1Sub: "can · opening experience",
+    p1Desc: "As you scroll, a photograph appears through giant CAN letters, then the doors open onto the “means life” scene. In the menu, each heading brings its own image.",
+    p1aAlt: "Doors opening onto an arched hallway with the words “means life.”",
+    p1aCap: "the doors open: “means life”",
+    p1bAlt: "Giant CAN letters on a dark background with a photograph showing through",
+    p1bCap: "through the letters",
+    p1cAlt: "Full-screen menu with a changing image beside it",
+    p1cCap: "full-screen menu",
+    p2Title: "catalogue and process",
+    p2Sub: "can · products and supply",
+    p2Desc: "Products can be filtered by category, and every piece has its own code and a quote button. The supply process is told in five steps, with a line that draws itself as you scroll.",
+    p2aAlt: "Product cards: Halo Wardrobe, Terra Frame, Stone Crest, Dune Capsule, Horizon Round, Modulo Grid",
+    p2aCap: "product catalogue",
+    p2bAlt: "Supply process: Brief, Options, Quote, Making, Delivery",
+    p2bCap: "5-step supply process",
+    p3Title: "gallery and enquiry",
+    p3Sub: "can · projects and contact",
+    p3Desc: "Projects are browsed through large photographs and small previews. The contact page leads visitors straight to a quote request with a single form.",
+    p3aAlt: "Selected projects: Aurelia Manor kitchen photograph with previews of other projects",
+    p3aCap: "project gallery",
+    p3bAlt: "Contact page: “Start a project.” headline and enquiry form",
+    p3bCap: "contact page",
+    formT: "enquiry form",
+    formD: "Project type, location, timing and budget in one form, with WhatsApp and a map link alongside.",
+    p4Title: "3D stone collection",
+    p4Sub: "can · natural stone",
+    p4Desc: "18 marbles and 8 travertines. Each stone can be turned in 3D in the browser to see it in the light, filtered by colour, and enquired about in one click.",
+    p4aAlt: "3D preview of Cielo Blu marble with application examples",
+    p4aCap: "turnable 3D stone",
+    p4bAlt: "Stone collection carousel with Absolute Black selected",
+    p4bCap: "stone carousel",
+    p4cAlt: "Stone section on the home page with a Calacatta Viola slab",
+    p4cCap: "stone picker on the home page",
+    prTitle: "how we work",
+    prSub: "process",
+    prDesc: "Four steps from idea to launch. I keep you informed at every step and we make the decisions together.",
+    st1t: "meeting",
+    st1d: "I listen to your needs and goals.",
+    st2t: "design",
+    st2d: "I prepare the first draft quickly.",
+    st3t: "revisions",
+    st3d: "I refine it based on your feedback.",
+    st4t: "launch",
+    st4d: "Your site goes live, and I keep supporting it afterwards.",
+    ctTitle: "let’s talk about your project",
+    ctPhone: "phone:",
+    ctMail: "e-mail:"
+  };
+  var titles = { tr: "Erdal Artun Erkin · Web Tasarımcısı", en: "Erdal Artun Erkin · Web Designer" };
+
+  var textEls = Array.prototype.slice.call(document.querySelectorAll("[data-i18n]"));
+  var altEls = Array.prototype.slice.call(document.querySelectorAll("[data-i18n-alt]"));
+  textEls.forEach(function (el) { el.setAttribute("data-tr", el.innerHTML); });
+  altEls.forEach(function (el) { el.setAttribute("data-tr-alt", el.getAttribute("alt")); });
+
+  function apply(lang) {
+    textEls.forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      el.innerHTML = (lang === "en" && en[k]) ? en[k] : el.getAttribute("data-tr");
+    });
+    altEls.forEach(function (el) {
+      var k = el.getAttribute("data-i18n-alt");
+      el.setAttribute("alt", (lang === "en" && en[k]) ? en[k] : el.getAttribute("data-tr-alt"));
+    });
+    document.documentElement.lang = lang;
+    document.title = titles[lang];
+    document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === lang));
+    });
+  }
+
+  function initial() {
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q === "en" || q === "tr") return q;
+    try { var s = localStorage.getItem("lang"); if (s === "en" || s === "tr") return s; } catch (e) {}
+    return (navigator.language || "tr").toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+  }
+
+  document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var lang = b.getAttribute("data-set-lang");
+      apply(lang);
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+    });
+  });
+
+  apply(initial());
+})();
+</script>
 </body>
 </html>
